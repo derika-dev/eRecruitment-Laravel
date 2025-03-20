@@ -13,4 +13,10 @@ class QuestionController extends Controller
         // $questions = Question::all();
         return Inertia::render('admin/questions/question-management');
     }
+
+    public  function add()
+    {
+        return Inertia::render('admin/questions/add-questions');
+    }
+
 }

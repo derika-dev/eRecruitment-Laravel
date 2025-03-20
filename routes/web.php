@@ -26,6 +26,8 @@ Route::middleware(['auth', 'verified', 'role:' . UserRole::HR->value])
                 Route::delete('/{user}', [UserController::class, 'destroy'])->name('remove');
             });
         Route::get('/questions', [QuestionController::class, 'index'])->name('questions');
+        Route::get('/add-questions', [QuestionController::class, 'add'])->name('add-questions-panel');
+       
     });
 
 
@@ -43,6 +45,11 @@ Route::middleware(['auth', 'verified'])->get('/redirect', function () {
     ? redirect()->route('admin.dashboard')
     : redirect()->route('user.info');
 })->name('dashboard');
+
+
+Route::get('/check-role', function () {
+    return Auth::check() ? response()->json(['role' => Auth::user()->role->value]) : 'Not logged in';
+});
 
 require __DIR__ . '/settings.php';
 require __DIR__ . '/auth.php';

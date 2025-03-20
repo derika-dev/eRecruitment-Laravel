@@ -2,6 +2,7 @@ import AppLayout from '@/layouts/app-layout';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
 import { useEffect } from 'react';
+import { Button } from '@/components/ui/button';
 
 interface QuestionProps {
     questions?: Question[];
@@ -42,6 +43,7 @@ export default function Questions(props: QuestionProps) {
                     <div className="grid auto-rows-min gap-4 md:grid-cols-2">
                         <h1>Question</h1>
                     </div>
+                    {/* <Button className='px-10 mx-10' onClick={handleAddQuestion}>Add User</Button> */}
                 </div>
             </div>
         </AppLayout>
